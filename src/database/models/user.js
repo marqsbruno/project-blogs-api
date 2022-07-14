@@ -1,5 +1,3 @@
-const { ModuleMap } = require("jest-haste-map");
-
 const User = (sequelize, DataTypes) => {
   const User = sequelize.define('User', {
     displayName: DataTypes.STRING,
