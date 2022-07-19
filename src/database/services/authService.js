@@ -1,5 +1,5 @@
 const db = require('../models');
-const jwtService = require('./jtwService');
+const jwtService = require('./jwtService');
 
 const authService = {
   login: async (email, password) => {

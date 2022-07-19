@@ -35,11 +35,6 @@ const validateToken = async (req, res, next) => {
     return res.status(401).json({ message: 'Token not found' });
   }
   next();
-  try {
-    await jwt.verify(authorization, process.env.JWT_SECRET);
-  } catch (err) {
-    return res.status(401).json({ message: 'Expired or invalid token' });
-  }
 };
 
 module.exports = {
