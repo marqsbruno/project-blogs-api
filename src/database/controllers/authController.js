@@ -4,7 +4,6 @@ const authController = {
   login: async (req, res) => {
     try {
       const { email, password } = req.body;
-      await authService.validateBody(req.body);
       const token = await authService.login(email, password);
   
       res.status(200).json({ token });
