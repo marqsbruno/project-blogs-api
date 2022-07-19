@@ -22,7 +22,8 @@ const createBlogPost = (sequelize, DataTypes) => {
     updated: {
       type: DataTypes.DATE,
     },
-  });
+  },
+  );
 
   BlogPost.associate = (db) => {
     BlogPost.belongsTo(db.User, { as: 'user', foreignKey: 'userId' })
