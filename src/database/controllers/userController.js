@@ -16,9 +16,20 @@ const userController = {
   },
 
   getAllUser: async (_req, res) => {
-   const users = await userService.getAllUser();
-  
-    res.status(200).json(users);
+    const users = await userService.getAllUser();
+ 
+    return res.status(200).json(users);
+   },
+
+  getUserId: async (req, res) => {
+    const { id } = req.params;
+    const user = await userService.getUserId(id);
+    
+    if (!user) {
+      return res.status(404).json({ message: 'User does not exist' });
+    }
+
+    return res.status(200).json(user);
   },
 };
 

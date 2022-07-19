@@ -36,9 +36,7 @@ const validateToken = async (req, res, next) => {
   }
   next();
   try {
-    const token = jwt.verify(authorization, process.env.JWT_SECRET);
-    
-    return token;
+    await jwt.verify(authorization, process.env.JWT_SECRET);
   } catch (err) {
     return res.status(401).json({ message: 'Expired or invalid token' });
   }
