@@ -1,4 +1,5 @@
-const sequelize = require("sequelize")
+const sequelize = require("sequelize");
+const PostCategory = require("./postCategory");
 
 const createBlogPost = (sequelize, DataTypes) => {
   const BlogPost = sequelize.define('BlogPost', {
@@ -26,6 +27,9 @@ const createBlogPost = (sequelize, DataTypes) => {
   BlogPost.associate = (db) => {
     BlogPost.belongsTo(db.User, { as: 'user', foreignKey: 'userId' })
   }
+/*   BlogPost.associate = (db) => {
+    BlogPost.hasMany(db.PostCategory, { as: 'postCategory', foreignKey: 'postId' })
+  } */
   return BlogPost;
 };
 
