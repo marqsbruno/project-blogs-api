@@ -13,6 +13,11 @@ const userService = {
     const user = await db.User.create({ displayName, email, password, image });
     return user;
   },
+
+  getAllUser: async () => {
+    const users = await db.User.findAll({ attributes: { exclude: 'password' } });
+    return users;
+  },
 };
 
 module.exports = userService;

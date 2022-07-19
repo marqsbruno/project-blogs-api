@@ -14,6 +14,12 @@ const userController = {
       return res.status(409).json({ message: error.message });
     }
   },
+
+  getAllUser: async (_req, res) => {
+   const users = await userService.getAllUser();
+  
+    res.status(200).json(users);
+  },
 };
 
 module.exports = userController;
