@@ -23,6 +23,7 @@ const createBlogPost = (sequelize, DataTypes) => {
       type: DataTypes.DATE,
     },
   },
+    {timestamps: false} // tira a coluna createAt
   );
 
   BlogPost.associate = (db) => {
